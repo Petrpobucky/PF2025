@@ -56,7 +56,7 @@ function scratch(e) {
 
   // Kontrola, zda uživatel odhalil velkou část vrstvy
   const revealedRatio = calculateRevealedRatio();
-  if (revealedRatio > 0.5) {
+  if (revealedRatio > 0.1) {
     overlay.style.display = 'none'; // Skrýt nápis po dosažení odhalené vrstvy
   }
 }
