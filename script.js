@@ -50,13 +50,13 @@ function scratch(e) {
 
   ctx.globalCompositeOperation = 'destination-out';
   ctx.beginPath();
-  ctx.arc(x, y, 50, 0, Math.PI * 2);
+  ctx.arc(x, y, 60, 0, Math.PI * 2);
   ctx.fill();
   ctx.beginPath();
 
   // Kontrola, zda uživatel odhalil velkou část vrstvy
   const revealedRatio = calculateRevealedRatio();
-  if (revealedRatio > 0.3) {
+  if (revealedRatio > 0.5) {
     overlay.style.display = 'none'; // Skrýt nápis po dosažení odhalené vrstvy
   }
 }
