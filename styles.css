@@ -1,0 +1,38 @@
+/* Nastavení stránky */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Kontejner, který bude obsahovat stírací vrstvu */
+#container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.ibb.co/r22cqVw/family-house-winter3.png') no-repeat center/cover;
+  background-size: cover;
+}
+
+/* Nastavení canvas */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none; /* Zabraňuje nežádoucímu scrollování */
+}
+
+/* Nastavení nápisu */
+#overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  pointer-events: none; /* Ignorování interakcí */
+}
