@@ -9,9 +9,9 @@ function resizeCanvas() {
   drawScratchLayer();
 }
 
-// Inicializace šedé vrstvy
+// Inicializace seversky modré vrstvy
 function drawScratchLayer() {
-  ctx.fillStyle = '#B0B0B0';
+  ctx.fillStyle = '#486A92'; // Seversky modrá
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
@@ -56,7 +56,7 @@ function scratch(e) {
 
   // Kontrola, zda uživatel odhalil velkou část vrstvy
   const revealedRatio = calculateRevealedRatio();
-  if (revealedRatio > 0.7) {
+  if (revealedRatio > 0.3) {
     overlay.style.display = 'none'; // Skrýt nápis po dosažení odhalené vrstvy
   }
 }
