@@ -18,6 +18,21 @@ function drawScratchLayer() {
 // Logika pro stírací efekt
 let isDrawing = false;
 
+function getPosition(e) {
+  const rect = canvas.getBoundingClientRect();
+  let x, y;
+
+  if (e.touches) {
+    x = e.touches[0].clientX - rect.left;
+    y = e.touches[0].clientY - rect.top;
+  } else {
+    x = e.clientX - rect.left;
+    y = e.clientY - rect.top;
+  }
+
+  return { x, y };
+}
+
 function startDrawing(e) {
   isDrawing = true;
   scratch(e);
@@ -31,9 +46,7 @@ function endDrawing() {
 function scratch(e) {
   if (!isDrawing) return;
 
-  const rect = canvas.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+  const { x, y } = getPosition(e);
 
   ctx.globalCompositeOperation = 'destination-out';
   ctx.beginPath();
@@ -53,18 +66,33 @@ function calculateRevealedRatio() {
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
   let revealedPixels = 0;
 
-  for (let i = 3; i < imageData.length; i += 4) { 
-    if (imageData[i] < 200) revealedPixels++; 
+  for (let i = 3; i < imageData.length; i += 4) {
+    if (imageData[i] < 200) revealedPixels++;
   }
 
   const totalPixels = canvas.width * canvas.height;
   return revealedPixels / totalPixels;
 }
 
+// Události pro myš
 canvas.addEventListener('mousedown', startDrawing);
 canvas.addEventListener('mousemove', scratch);
 canvas.addEventListener('mouseup', endDrawing);
 canvas.addEventListener('mouseleave', endDrawing);
+
+// Události pro dotyk
+canvas.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  startDrawing(e);
+});
+canvas.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+  scratch(e);
+});
+canvas.addEventListener('touchend', (e) => {
+  e.preventDefault();
+  endDrawing();
+});
 
 // Resize canvas automaticky
 window.addEventListener('resize', resizeCanvas);
