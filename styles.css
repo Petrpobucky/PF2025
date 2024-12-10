@@ -32,26 +32,36 @@ canvas {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #D5713F; /* Oranžová dřevitá */
+  color: #FFFFFF; /* Bílá */
   font-family: Arial, sans-serif;
   pointer-events: none;
 }
 
 .main-text {
-  font-size: 3em;
+  font-size: 4em; /* Zvýšená velikost */
   font-weight: bold;
 }
 
 .signature {
-  font-size: 1.5em;
-  margin-top: 10px;
+  font-size: 2em; /* Zvýšená velikost */
+  font-weight: bold; /* Zvýraznění tučně */
+  margin-top: 15px;
 }
 
 /* CTA */
 .cta {
-  font-size: 1.2em;
-  margin-top: 20px;
+  font-size: 1.5em; /* Zvýšená velikost */
+  font-weight: bold; /* Tučné písmo */
+  margin-top: 40px; /* Zvýšený odsaz */
   animation: pulse 1.5s infinite;
+}
+
+/* Šipka */
+.arrow {
+  display: block;
+  font-size: 2em; /* Velikost šipky */
+  margin: 20px auto 0; /* Odsazení šipky dolů */
+  animation: pulse 1.5s infinite; /* Pulzující efekt */
 }
 
 /* Pulzující efekt */
@@ -69,14 +79,18 @@ canvas {
 /* Responzivní styl pro malé obrazovky */
 @media (max-width: 768px) {
   .main-text {
-    font-size: 2em;
+    font-size: 3em;
   }
 
   .signature {
-    font-size: 1.2em;
+    font-size: 1.5em;
   }
 
   .cta {
-    font-size: 1em;
+    font-size: 1.2em;
+  }
+
+  .arrow {
+    font-size: 1.8em;
   }
 }
