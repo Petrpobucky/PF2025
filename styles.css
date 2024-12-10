@@ -59,9 +59,10 @@ canvas {
 /* Šipka */
 .arrow {
   display: block;
-  font-size: 2em; /* Velikost šipky */
-  margin: 20px auto 0; /* Odsazení šipky dolů */
+  font-size: 10em; /* Velikost šipky */
+  margin: 50px auto 0; /* Odsazení šipky dolů */
   animation: pulse 1.5s infinite; /* Pulzující efekt */
+  color: #FFFFFF; /* Bílé zbarvení, pokud je potřeba */
 }
 
 /* Pulzující efekt */
