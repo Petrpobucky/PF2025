@@ -60,8 +60,20 @@ canvas {
   display: block;
   font-size: 5em; /* Zvýšená velikost ikony */
   margin: 50px auto 0;
-  animation: pulse 1.5s infinite; /* Pulzující efekt */
+  animation: moveSideways 1.5s infinite; /* Posun do boku */
   color: #FFFFFF; /* Bílá barva */
+}
+
+@keyframes moveSideways {
+  0% {
+    transform: translateX(0); /* Výchozí pozice */
+  }
+  50% {
+    transform: translateX(20px); /* Posun doprava */
+  }
+  100% {
+    transform: translateX(0); /* Návrat na původní pozici */
+  }
 }
 
 /* Pulzující efekt */
